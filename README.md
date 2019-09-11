@@ -1,3 +1,3 @@
-Repository for Shell Basics 
+**Repository for Shell Basics** 
 Holberton School
 By Stuart Echeverry
