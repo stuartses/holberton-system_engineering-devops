@@ -1,2 +1,2 @@
-**Tasks**
-This project have the coomand for Task
+**Task**
+This is a project about Task
