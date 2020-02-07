@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# script that displays de content directory without text
+# before "-" in each filename
+
+for file in `ls`
+do
+	echo $file | cut -d"-" -f2
+done
