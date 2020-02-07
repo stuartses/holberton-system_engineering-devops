@@ -2,7 +2,7 @@
 # script that displays de content directory without text
 # before "-" in each filename
 
-for file in `ls`
+for file in *
 do
-	echo $file | cut -d"-" -f2
+	echo "$file" | cut -d"-" -f2
 done
