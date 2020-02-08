@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# script that displays numbers from 1 to 100 with FizzBuzz
+
+for n in {1..100}
+do
+    let "x = $n % 3"
+    let "y = $n % 5"
+
+    if [ "$x" = 0 ] && [ "$y" = 0 ]
+    then
+	echo "FizzBuzz"
+    else
+	if [ "$x" = 0 ] && [ "$y" != 0 ]
+	then
+	    echo "Fizz"
+	fi
+
+	if [ "$x" != 0 ] && [ "$y" = 0 ]
+	then
+	    echo "Buzz"
+	fi
+
+	if [ "$x" != 0 ] && [ "$y" != 0 ]
+	then
+	    echo "$n"
+	fi
+
+    fi
+done
