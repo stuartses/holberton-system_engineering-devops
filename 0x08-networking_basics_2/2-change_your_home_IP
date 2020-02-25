@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+#Modify hosts file to localhost and facebook
+
+HOSTNAME="localhost" # write the hostname to match
+NEW_IP="127.0.0.2" # write the new ip
+HOST_FILE="hosts.new" # temporal host file necessary by docker
+
+cp /etc/hosts $HOST_FILE
+
+# Get the number where is the HOSTNAME
+LINE=$(grep -n "\s$HOSTNAME$" $HOST_FILE | cut -d ":" -f1 | head -1)
+
+if [ "$LINE" != "" ]
+then
+    # Replace the line withe new data
+    sed -i "${LINE}s/.*$HOSTNAME/$NEW_IP $HOSTNAME/" $HOST_FILE
+else
+    echo $NEW_IP $HOSTNAME | cat - $HOST_FILE  > host.temp
+    mv host.temp $HOST_FILE
+fi
+
+# To insert a new Hostname
+
+HOSTNAME2="facebook.com"
+NEW_IP2="8.8.8.8"
+
+echo $NEW_IP2 $HOSTNAME2 | cat - $HOST_FILE  > host.temp
+mv host.temp $HOST_FILE
+cp -f $HOST_FILE /etc/hosts
+rm $HOST_FILE
