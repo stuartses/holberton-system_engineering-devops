@@ -1,4 +1,0 @@
-Host holberton:
-    HostName 35.237.164
-    User ubuntu
-    IdentityFile ~/.ssh/holberton
