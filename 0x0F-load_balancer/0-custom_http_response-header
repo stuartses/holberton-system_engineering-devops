@@ -1,4 +1,11 @@
 #!/usr/bin/env bash
-# Script that add a custom HTTP header
+# Script that install ngnix and an custom HTTP header
+apt-get -y update
+apt-get -y install nginx
+ufw allow 'Nginx HTTP'
+echo "Holberton School" > /var/www/html/index.html
+#Page of 404 error
+echo "Ceci n'est pas une page" > /var/www/html/404.html
+# Add HTTP Header
 sed -i "/http {/a \\\t##\n\t# Holberton\n\t##\n\tadd_header X-Served-By \$hostname;" /etc/nginx/nginx.conf
 service nginx restart
