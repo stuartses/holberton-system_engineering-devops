@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Script that add a custom HTTP header
+sed -i "/http {/a \\\t##\n\t# Holberton\n\t##\n\tadd_header X-Served-By \$hostname;" /etc/nginx/nginx.conf
+service nginx restart
