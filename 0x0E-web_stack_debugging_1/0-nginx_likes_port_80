@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # Enable port 80 in nginx web server and add the script to the commands to be executed
-sed -i -e "s/8080/8/g" /etc/nginx/sites-enabled/default
+sed -i -e "s/8080/80/g" /etc/nginx/sites-enabled/default
 service nginx restart
