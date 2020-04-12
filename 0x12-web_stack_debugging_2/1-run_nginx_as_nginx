@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Enable ngnix to be used by nginx user, and change by that user
 pkill apache2
-chown nginx:nginx /etc/nginx/nginx.conf
+chown nginx:nginx /etc/nginx/
 chmod 744 /etc/nginx/nginx.conf
 sudo -u nginx service nginx restart
