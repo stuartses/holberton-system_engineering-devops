@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Read thata from the API JSONPlaceholder and create a json
+"""Read thata from the API JSONPlaceholder and export to json file
 https://jsonplaceholder.typicode.com/
 
 Resources: users, todos
@@ -31,4 +31,6 @@ if __name__ == "__main__":
 
     usr_dict = {}
     usr_dict[usr_id] = task_dict_list
-    print(json.dumps(usr_dict))
+
+    with open(argv[1] + ".json", mode="w") as usr_file:
+        usr_file.write(json.dumps(usr_dict))
