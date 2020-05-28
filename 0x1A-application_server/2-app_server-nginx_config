@@ -28,6 +28,11 @@ server {
 	rewrite /redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;
 	listen [::]:80 default_server;
 
+	location = /airbnb-onepage/ {
+	proxy_pass http://127.0.0.1:5000/airbnb-onepage/;
+	}
+
+
 	# SSL configuration
 	#
 	# listen 443 ssl default_server;
@@ -75,24 +80,6 @@ server {
 	#	deny all;
 	#}
 }
-
-# Enable API AnB_v2
-server {
-       listen 80;
-       server_name 127.0.0.1 localhost 35.237.164.135;
-
-       location = /airbnb-onepage/ {
-       proxy_pass http://127.0.0.1:5000/airbnb-onepage/;
-       }
-
-       location ~ /(airbnb-dynamic)/(number_odd_or_even)/ {
-       rewrite ^/(airbnb-dynamic)/(number_odd_or_even)/(.*)$ /$2/$3 break;
-       proxy_pass http://127.0.0.1:5001;
-       }
-
-}
-
-
 
 
 # Virtual Host configuration for example.com
